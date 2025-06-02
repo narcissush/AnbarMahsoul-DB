@@ -1,6 +1,6 @@
 package anbar.controller;
 
-import anbar.model.repository.CustomerDataAccess;
+import anbar.model.repository.CustomerDA;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -18,14 +18,14 @@ public class LoginController implements Initializable {
     private TextField logInUserTxt,logInPasswordTxt;
     @FXML
     private Button signInBtn, signOutBtn;
-    private CustomerDataAccess customerDataAccess = new CustomerDataAccess();
+    private CustomerDA customerDA = new CustomerDA();
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
 
         signInBtn.setOnAction(e -> {
             try {
-                boolean success = customerDataAccess.loginUser(logInUserTxt.getText(), logInPasswordTxt.getText());
+                boolean success = customerDA.loginUser(logInUserTxt.getText(), logInPasswordTxt.getText());
                 if (success) {
                     Stage productStage = new Stage();
                     Scene productScene = new Scene(FXMLLoader.load(getClass().getResource("/view/ProductForm.fxml")));

@@ -3,8 +3,7 @@ package anbar.controller;
 import anbar.model.entity.Product;
 import anbar.model.entity.enums.Brand;
 import anbar.model.entity.enums.Os;
-import anbar.model.repository.ProductDataAccess;
-import anbar.model.repository.ProductDataFileManager;
+import anbar.model.repository.ProductDA;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.Event;
@@ -42,7 +41,7 @@ public class ProductController implements Initializable {
     @FXML private TableColumn<Product, LocalDate> dateCol;
     @FXML private TableColumn<Product, Boolean> hasChargerCol, hasHandsfreeCol;
 
-    private ProductDataAccess productDataAccess = new ProductDataAccess();
+    private ProductDA productDA = new ProductDA();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -65,7 +64,7 @@ public class ProductController implements Initializable {
                         .datePick(datePick.getValue())
                         .build();
 
-                productDataAccess.saveProduct(product);
+                productDA.saveProduct(product);
                 log.info("Product Created: " + product);
                 new Alert(Alert.AlertType.INFORMATION, "Product Saved", ButtonType.OK).show();
                 resetForm();
@@ -91,7 +90,7 @@ public class ProductController implements Initializable {
                         .datePick(datePick.getValue())
                         .build();
 
-                productDataAccess.editProduct(product);
+                productDA.editProduct(product);
                 log.info("Product Edited: " + product);
                 new Alert(Alert.AlertType.INFORMATION, "Product Updated", ButtonType.OK).show();
                 resetForm();
@@ -104,7 +103,7 @@ public class ProductController implements Initializable {
         deleteBtn.setOnAction(event -> {
             try {
                 int id = Integer.parseInt(productIdTxt.getText());
-                productDataAccess.removeProduct(id);
+                productDA.removeProduct(id);
                 new Alert(Alert.AlertType.INFORMATION, "Product Deleted", ButtonType.OK).show();
                 log.info("Product Deleted: " + id);
                 resetForm();
@@ -115,7 +114,7 @@ public class ProductController implements Initializable {
 
         SearchBtn.setOnAction(event -> {
             try {
-                showProductsOnTable(productDataAccess.getProductsByBrand(searchBrandTxt.getText(), Integer.parseInt(searchPriceTxt.getText())));
+                showProductsOnTable(productDA.getProductsByBrand(searchBrandTxt.getText(), Integer.parseInt(searchPriceTxt.getText())));
             } catch (Exception e) {
                 log.error(e.getMessage());
             }
@@ -124,7 +123,7 @@ public class ProductController implements Initializable {
         showAllBtn.setOnAction(event -> {
 
             try {
-                showProductsOnTable(productDataAccess.getAllProducts());
+                showProductsOnTable(productDA.getAllProducts());
             } catch (Exception e) {
                 log.error(e.getMessage());
             }
@@ -166,7 +165,7 @@ public class ProductController implements Initializable {
         datePick.setValue(LocalDate.now());
 
         try {
-            showProductsOnTable(productDataAccess.getAllProducts());
+            showProductsOnTable(productDA.getAllProducts());
         } catch (Exception e) {
             log.error("Error Resetting Form: " + e.getMessage());
 

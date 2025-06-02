@@ -2,22 +2,14 @@ package anbar.controller;
 
 import anbar.model.entity.Customer;
 import anbar.model.entity.enums.Gender;
-import anbar.model.entity.enums.Os;
-import anbar.model.repository.CustomerDataAccess;
-import anbar.model.repository.CustomerDataFileManager;
-import anbar.model.repository.ProductDataFileManager;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import anbar.model.repository.CustomerDA;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Stage;
 import lombok.extern.log4j.Log4j2;
 
 import java.net.URL;
 import java.time.LocalDate;
-import java.util.List;
 import java.util.ResourceBundle;
 
 @Log4j2
@@ -30,7 +22,7 @@ public class CustomerController implements Initializable {
 
     @FXML private Button saveBtn,backBtn;
 
-    private final CustomerDataAccess customerDataAccess = new CustomerDataAccess();
+    private final CustomerDA customerDA = new CustomerDA();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -39,7 +31,7 @@ public class CustomerController implements Initializable {
         saveBtn.setOnAction(event -> {
             try {
                 Customer customer = new Customer();
-                customerDataAccess.saveCustomer(getCustomerFrom());
+                customerDA.saveCustomer(getCustomerFrom());
                 log.info("Customer Saved: {}", customer);
                 new Alert(Alert.AlertType.INFORMATION, "Customer Saved", ButtonType.OK).show();
                 resetForm();

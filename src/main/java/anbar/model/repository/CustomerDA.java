@@ -1,18 +1,13 @@
 package anbar.model.repository;
 
 import anbar.model.entity.Customer;
-import anbar.model.entity.Product;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
 import lombok.extern.log4j.Log4j2;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Log4j2
-public class CustomerDataAccess {
+public class CustomerDA {
 
     public void saveCustomer(Customer customer) throws IOException {
         CustomerDataFileManager.getManager().addCustomer(customer);

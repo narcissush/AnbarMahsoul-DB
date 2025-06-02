@@ -8,10 +8,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Log4j2
-public class ProductDataAccess {
+public class ProductDA {
 
     public void saveProduct(Product product) throws IOException {
-        ProductDataFileManager.getManager().addProduct(product);
+        ConnectionProvider.getConnection();
         ProductDataFileManager.getManager().saveToFile();
         log.info("Product saved: " + product);
     }
