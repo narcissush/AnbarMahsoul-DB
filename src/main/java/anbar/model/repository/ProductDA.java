@@ -1,10 +1,13 @@
 package anbar.model.repository;
 
+import anbar.model.entity.enums.Brand;
+import anbar.model.entity.enums.Os;
 import lombok.extern.log4j.Log4j2;
 import anbar.model.entity.Product;
 
 import java.io.IOException;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -58,10 +61,26 @@ public class ProductDA implements AutoCloseable {
         log.info("Product removed: " + id);
     }
 
-    public void getAllProducts() throws SQLException {
+    public List<Product> getAllProducts() throws SQLException {
+        List<Product> productsList = new ArrayList<>();
         preparedStatement= connection.prepareStatement("select * from product");
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while(resultSet.next()){
+            Product product = Product.builder()
+                    .productId(resultSet.getInt("id"))
+                    .brand(Brand.valueOf(resultSet.getString("brand")))
+                    .model(resultSet.getString("model"))
+                    .os(Os.valueOf(resultSet.getString("os")))
+                    .price(resultSet.getInt("price"))
+                    .count(resultSet.getInt("count"))
+                    .hasHandsfree(resultSet.getBoolean("hashansfree"))
+                    .hasCharger(resultSet.getBoolean("hascharger"))
+                    .datePick(resultSet.getDate("birth_date").toLocalDate())
+                    .build();
+            productsList.add(product);
+        }
+        return productsList;
 
-        preparedStatement.execute();
     }
     public int getProductId() throws SQLException {
         preparedStatement= connection.prepareStatement("SELECT COALESCE(MAX(id), 0) + 1 AS next_id FROM product");
@@ -83,6 +102,7 @@ public class ProductDA implements AutoCloseable {
 
     @Override
     public void close() throws Exception {
+        System.out.printf("close");
 connection.close();
 preparedStatement.close();
     }

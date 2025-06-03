@@ -162,8 +162,8 @@ public class ProductController implements Initializable {
             iosRdo.setSelected(true);
             hasChargerChk.setSelected(false);
             hasHansfreeChk.setSelected(false);
-            datePick.setValue(LocalDate.now());//
-            //showProductsOnTable(productDA.getAllProducts());
+            datePick.setValue(LocalDate.now());
+            showProductsOnTable(productDA.getAllProducts());
         } catch (Exception e) {
             log.error("Error Resetting Form: " + e.getMessage());
 
