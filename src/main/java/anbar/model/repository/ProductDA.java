@@ -38,7 +38,7 @@ public class ProductDA implements AutoCloseable {
     }
 
     public void editProduct(Product product) throws SQLException {
-        preparedStatement= connection.prepareStatement("update Product set brane=?,model=?,os=?,hascharger=?,hashansfree=?,price=?,count=?,birth_date=? where id=?");
+        preparedStatement= connection.prepareStatement("update Product set brand=?,model=?,os=?,hascharger=?,hashansfree=?,price=?,count=?,birth_date=? where id=?");
 
         preparedStatement.setString(1,product.getBrand().name());
         preparedStatement.setString(2,product.getModel());
