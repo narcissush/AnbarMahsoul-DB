@@ -4,7 +4,7 @@ VALUES (2,'samsung','135','android',1,1,115,15,null)
 
 
 --select
-select * from PRODUCT
+select * from PRODUCT where os='ios'
 
 
 

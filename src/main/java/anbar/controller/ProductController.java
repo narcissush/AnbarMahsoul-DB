@@ -41,7 +41,7 @@ public class ProductController implements Initializable {
     @FXML private TableColumn<Product, LocalDate> dateCol;
     @FXML private TableColumn<Product, Boolean> hasChargerCol, hasHandsfreeCol;
 
-    private ProductDA productDA = new ProductDA();
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -50,10 +50,10 @@ public class ProductController implements Initializable {
         resetForm();
 
         saveBtn.setOnAction(event -> {
-            try {
+            try (ProductDA productDA = new ProductDA()) {
                 RadioButton selectOsRadio = (RadioButton) osToggleGroup.getSelectedToggle();
                 Product product = Product.builder()
-                        .productId(Integer.parseInt(productIdTxt.getText()))
+                        .productId(productDA.getProductId())
                         .model(modelTxt.getText())
                         .count(Integer.parseInt(countTxt.getText()))
                         .price(Integer.parseInt(priceTxt.getText()))
@@ -75,7 +75,7 @@ public class ProductController implements Initializable {
         });
 
         editBtn.setOnAction(event -> {
-            try {
+            try (ProductDA productDA = new ProductDA()) {
                 Os os = iosRdo.isSelected() ? Os.IOS : Os.ANDROID;
 
                 Product product = Product.builder()
@@ -101,7 +101,7 @@ public class ProductController implements Initializable {
         });
 
         deleteBtn.setOnAction(event -> {
-            try {
+            try (ProductDA productDA = new ProductDA()) {
                 int id = Integer.parseInt(productIdTxt.getText());
                 productDA.removeProduct(id);
                 new Alert(Alert.AlertType.INFORMATION, "Product Deleted", ButtonType.OK).show();
@@ -113,21 +113,21 @@ public class ProductController implements Initializable {
         });
 
         SearchBtn.setOnAction(event -> {
-            try {
-                showProductsOnTable(productDA.getProductsByBrand(searchBrandTxt.getText(), Integer.parseInt(searchPriceTxt.getText())));
-            } catch (Exception e) {
-                log.error(e.getMessage());
-            }
+//            try {
+//                showProductsOnTable(productDA.getProductsByBrand(searchBrandTxt.getText(), Integer.parseInt(searchPriceTxt.getText())));
+//            } catch (Exception e) {
+//                log.error(e.getMessage());
+//            }
         });
 
-        showAllBtn.setOnAction(event -> {
-
-            try {
-                showProductsOnTable(productDA.getAllProducts());
-            } catch (Exception e) {
-                log.error(e.getMessage());
-            }
-        });
+//        showAllBtn.setOnAction(event -> {
+//
+//            try {
+//                showProductsOnTable(productDA.getAllProducts());
+//            } catch (Exception e) {
+//                log.error(e.getMessage());
+//            }
+//        });
 
         EventHandler<Event> tableChangeEvent = (mouseEvent) -> {
             Product selected = productTable.getSelectionModel().getSelectedItem();
@@ -150,22 +150,20 @@ public class ProductController implements Initializable {
     }
 
     private void resetForm() {
+        try (ProductDA productDA = new ProductDA()) {
 
-
-        productIdTxt.setText(String.valueOf(ProductDataFileManager.getManager().getNextId()));
-        modelTxt.clear();
-        countTxt.clear();
-        priceTxt.clear();
-        searchBrandTxt.clear();
-        searchPriceTxt.clear();
-        brandCmb.getSelectionModel().selectFirst();
-        iosRdo.setSelected(true);
-        hasChargerChk.setSelected(false);
-        hasHansfreeChk.setSelected(false);
-        datePick.setValue(LocalDate.now());
-
-        try {
-            showProductsOnTable(productDA.getAllProducts());
+            productIdTxt.setText(String.valueOf(productDA.getProductId()));
+            modelTxt.clear();
+            countTxt.clear();
+            priceTxt.clear();
+            searchBrandTxt.clear();
+            searchPriceTxt.clear();
+            brandCmb.getSelectionModel().selectFirst();
+            iosRdo.setSelected(true);
+            hasChargerChk.setSelected(false);
+            hasHansfreeChk.setSelected(false);
+            datePick.setValue(LocalDate.now());//
+            //showProductsOnTable(productDA.getAllProducts());
         } catch (Exception e) {
             log.error("Error Resetting Form: " + e.getMessage());
 

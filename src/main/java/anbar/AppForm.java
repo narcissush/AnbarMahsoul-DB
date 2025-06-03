@@ -13,7 +13,7 @@ public class AppForm extends Application {
     public void start(Stage primaryStage) throws Exception {
         try {
 
-            Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/view/LoginForm.fxml")));
+            Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/view/ProductForm.fxml")));
             primaryStage.setTitle("anbar.AppForm");
             primaryStage.setScene(scene);
             primaryStage.show();

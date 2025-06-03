@@ -8,14 +8,14 @@ import java.sql.SQLException;
 
 public class ConnectionProvider {
     @Getter
-    private static ConnectionProvider connection=new ConnectionProvider();
+    private static ConnectionProvider getConnectionProvider=new ConnectionProvider();
     private ConnectionProvider(){};
 
-    public Connection getconnect() throws SQLException {
+    public Connection getconnection() throws SQLException {
         return DriverManager.getConnection(
                 "jdbc:oracle:thin:@localhost:1521:xe",
-                "java",
-                "123"
+                "admin",
+                "admin123"
         );
 
     }

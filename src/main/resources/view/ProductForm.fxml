@@ -83,7 +83,7 @@
                   <Insets left="15.0" />
                </padding>
             </Label>
-            <TextField fx:id="productIdTxt" disable="true" editable="false" nodeOrientation="RIGHT_TO_LEFT" GridPane.columnIndex="1" />
+            <TextField fx:id="productIdTxt"   nodeOrientation="RIGHT_TO_LEFT" GridPane.columnIndex="1" />
             <TextField fx:id="modelTxt" nodeOrientation="RIGHT_TO_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <ComboBox fx:id="brandCmb" nodeOrientation="RIGHT_TO_LEFT" prefHeight="25.0" prefWidth="187.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <DatePicker fx:id="datePick" nodeOrientation="RIGHT_TO_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="3" />

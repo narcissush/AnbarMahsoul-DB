@@ -25,57 +25,57 @@ public class CustomerController implements Initializable {
     private final CustomerDA customerDA = new CustomerDA();
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        resetForm();
-
-        saveBtn.setOnAction(event -> {
-            try {
-                Customer customer = new Customer();
-                customerDA.saveCustomer(getCustomerFrom());
-                log.info("Customer Saved: {}", customer);
-                new Alert(Alert.AlertType.INFORMATION, "Customer Saved", ButtonType.OK).show();
-                resetForm();
-            } catch (Exception e) {
-                log.error("Error Saving Customer: {}", e.getMessage());
-                new Alert(Alert.AlertType.ERROR, "Error Saving Customer", ButtonType.OK).show();
-            }
-        });
-        backBtn.setOnAction(event -> {
-            //
-        });
-
-
-
-
-    }
-
-    private Customer getCustomerFrom() {
-        Gender genderRdb = menRbtn.isSelected() ? Gender.MALE : Gender.FEMALE;
-        Customer customer=
-                Customer.builder()
-                .customerId(Integer.parseInt(customerIdTxt.getText()))
-                .name(nameTxt.getText())
-                .family(familyTxt.getText())
-                .nationalId(nationalIdTxt.getText())
-                .gender(genderRdb)
-                .birthDate(birthDatePick.getValue())
-                .mobile(mobileTxt.getText())
-                .username(userTxt.getText())
-                .password(passwordTxt.getText())
-                .build();
-        return customer;
-
-    }
-    private void resetForm() {
-        customerIdTxt.setText(String.valueOf(CustomerDataFileManager.getManager().getNextId()));
-        nameTxt.clear();
-        familyTxt.clear();
-        mobileTxt.clear();
-        userTxt.clear();
-        passwordTxt.clear();
-        birthDatePick.setValue(LocalDate.now());
-        womenRbtn.setSelected(true);
-
-       }
+   public void initialize(URL location, ResourceBundle resources) {
+//        resetForm();
+//
+//        saveBtn.setOnAction(event -> {
+//            try {
+//                Customer customer = new Customer();
+//                customerDA.saveCustomer(getCustomerFrom());
+//                log.info("Customer Saved: {}", customer);
+//                new Alert(Alert.AlertType.INFORMATION, "Customer Saved", ButtonType.OK).show();
+//                resetForm();
+//            } catch (Exception e) {
+//                log.error("Error Saving Customer: {}", e.getMessage());
+//                new Alert(Alert.AlertType.ERROR, "Error Saving Customer", ButtonType.OK).show();
+//            }
+//        });
+//        backBtn.setOnAction(event -> {
+//            //
+//        });
+//
+//
+//
+//
+//    }
+//
+//    private Customer getCustomerFrom() {
+//        Gender genderRdb = menRbtn.isSelected() ? Gender.MALE : Gender.FEMALE;
+//        Customer customer=
+//                Customer.builder()
+//                .customerId(Integer.parseInt(customerIdTxt.getText()))
+//                .name(nameTxt.getText())
+//                .family(familyTxt.getText())
+//                .nationalId(nationalIdTxt.getText())
+//                .gender(genderRdb)
+//                .birthDate(birthDatePick.getValue())
+//                .mobile(mobileTxt.getText())
+//                .username(userTxt.getText())
+//                .password(passwordTxt.getText())
+//                .build();
+//        return customer;
+//
+//    }
+//    private void resetForm() {
+//        customerIdTxt.setText(String.valueOf(CustomerDataFileManager.getManager().getNextId()));
+//        nameTxt.clear();
+//        familyTxt.clear();
+//        mobileTxt.clear();
+//        userTxt.clear();
+//        passwordTxt.clear();
+//        birthDatePick.setValue(LocalDate.now());
+//        womenRbtn.setSelected(true);
+//
+      }
 }
 
