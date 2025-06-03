@@ -86,11 +86,11 @@
             <TextField fx:id="productIdTxt"   nodeOrientation="RIGHT_TO_LEFT" GridPane.columnIndex="1" />
             <TextField fx:id="modelTxt" nodeOrientation="RIGHT_TO_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <ComboBox fx:id="brandCmb" nodeOrientation="RIGHT_TO_LEFT" prefHeight="25.0" prefWidth="187.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <DatePicker fx:id="datePick" nodeOrientation="RIGHT_TO_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <DatePicker fx:id="manufactureDate" nodeOrientation="RIGHT_TO_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3">
                <children>
                   <CheckBox fx:id="hasChargerChk" mnemonicParsing="false" text="شارژر" />
-                  <CheckBox fx:id="hasHansfreeChk" mnemonicParsing="false" text="هندزفری">
+                  <CheckBox fx:id="hasHeadset" mnemonicParsing="false" text="هندزفری">
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin></CheckBox>
@@ -132,9 +132,9 @@
                 <TableColumn fx:id="modelCol" text="مدل" />
                 <TableColumn fx:id="brandCol" text="برند" />
                 <TableColumn fx:id="osCol" text="سیستم" />
-                <TableColumn fx:id="dateCol" text="تاریخ تولد" />
+                <TableColumn fx:id="manufactureDateCol" text="تاریخ تولید" />
             <TableColumn fx:id="hasChargerCol" text="شارژر" />
-            <TableColumn fx:id="hasHandsfreeCol" text="هندزفری" />
+            <TableColumn fx:id="hasHeadsetCol" text="هندزفری" />
                 <TableColumn fx:id="countCol" text="تعداد" />
                 <TableColumn fx:id="priceCol" text="قیمت" />
 

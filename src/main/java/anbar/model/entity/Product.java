@@ -14,16 +14,13 @@ import java.time.LocalDate;
 @SuperBuilder
 
 public class Product implements Serializable {
-    private int productId;
+    private int id;
     private Brand brand;
     private String model;
     private Os os;
     private boolean hasCharger;
-    private boolean hasHandsfree;
+    private boolean hasHeadset;
     private int price;
     private int count;
-    private LocalDate datePick;
-
-
-
+    private LocalDate manufactureDate;
 }

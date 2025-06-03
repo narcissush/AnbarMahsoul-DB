@@ -1,0 +1,3 @@
+2025-06-03 20:15:29.848 [main] INFO  anbar.model.repository.ProductDA - Connected
+2025-06-03 20:16:04.819 [main] INFO  anbar.model.repository.ProductDA - Connected
+2025-06-03 20:16:05.770 [main] INFO  anbar.model.repository.ProductDA - Product saved: Product(id=1, brand=IPHONE, model=2020, os=ANDROID, hasCharger=true, hasHeadset=false, price=1200, count=50, manufactureDate=2025-06-03)

@@ -26,9 +26,9 @@ public class ProductController implements Initializable {
 
     @FXML private TextField productIdTxt, modelTxt, countTxt, priceTxt, searchBrandTxt, searchPriceTxt;
     @FXML private RadioButton iosRdo, androidRdo;
-    @FXML private CheckBox hasChargerChk, hasHansfreeChk;
+    @FXML private CheckBox hasChargerChk, hasHeadset;
     @FXML private ComboBox<Brand> brandCmb;
-    @FXML private DatePicker datePick;
+    @FXML private DatePicker manufactureDate;
     @FXML private Button saveBtn, editBtn, deleteBtn, SearchBtn, showAllBtn;
     @FXML private ToggleGroup osToggleGroup;
 
@@ -38,8 +38,8 @@ public class ProductController implements Initializable {
     @FXML private TableColumn<Product, Integer> countCol, priceCol;
     @FXML private TableColumn<Product, Brand> brandCol;
     @FXML private TableColumn<Product, Os> osCol;
-    @FXML private TableColumn<Product, LocalDate> dateCol;
-    @FXML private TableColumn<Product, Boolean> hasChargerCol, hasHandsfreeCol;
+    @FXML private TableColumn<Product, LocalDate> manufactureDateCol;
+    @FXML private TableColumn<Product, Boolean> hasChargerCol, hasHeadsetCol;
 
 
 
@@ -53,24 +53,22 @@ public class ProductController implements Initializable {
             try (ProductDA productDA = new ProductDA()) {
                 RadioButton selectOsRadio = (RadioButton) osToggleGroup.getSelectedToggle();
                 Product product = Product.builder()
-                        .productId(productDA.getProductId())
-                        .model(modelTxt.getText())
-                        .count(Integer.parseInt(countTxt.getText()))
-                        .price(Integer.parseInt(priceTxt.getText()))
-                        .hasCharger(hasChargerChk.isSelected())
-                        .hasHandsfree(hasHansfreeChk.isSelected())
                         .brand(brandCmb.getSelectionModel().getSelectedItem())
+                        .model(modelTxt.getText())
+                        .hasCharger(hasChargerChk.isSelected())
+                        .hasHeadset(hasHeadset.isSelected())
                         .os(Os.valueOf(selectOsRadio.getText()))
-                        .datePick(datePick.getValue())
+                        .price(Integer.parseInt(priceTxt.getText()))
+                        .count(Integer.parseInt(countTxt.getText()))
+                        .manufactureDate(manufactureDate.getValue())
                         .build();
 
-                productDA.saveProduct(product);
+                productDA.save(product);
                 log.info("Product Created: " + product);
                 new Alert(Alert.AlertType.INFORMATION, "Product Saved", ButtonType.OK).show();
                 resetForm();
             } catch (Exception e) {
                 log.error("Error Saving Product: " + e.getMessage());
-                e.printStackTrace();
             }
         });
 
@@ -79,15 +77,15 @@ public class ProductController implements Initializable {
                 Os os = iosRdo.isSelected() ? Os.IOS : Os.ANDROID;
 
                 Product product = Product.builder()
-                        .productId(Integer.parseInt(productIdTxt.getText()))
+                        .id(Integer.parseInt(productIdTxt.getText()))
                         .model(modelTxt.getText())
                         .count(Integer.parseInt(countTxt.getText()))
                         .price(Integer.parseInt(priceTxt.getText()))
                         .hasCharger(hasChargerChk.isSelected())
-                        .hasHandsfree(hasHansfreeChk.isSelected())
+                        .hasHeadset(hasHeadset.isSelected())
                         .brand(brandCmb.getSelectionModel().getSelectedItem())
                         .os(os)
-                        .datePick(datePick.getValue())
+                        .manufactureDate(manufactureDate.getValue())
                         .build();
 
                 productDA.editProduct(product);
@@ -96,7 +94,6 @@ public class ProductController implements Initializable {
                 resetForm();
             } catch (Exception e) {
                 log.error("Error Editing Product: " + e.getMessage());
-                e.printStackTrace();
             }
         });
 
@@ -132,14 +129,14 @@ public class ProductController implements Initializable {
         EventHandler<Event> tableChangeEvent = (mouseEvent) -> {
             Product selected = productTable.getSelectionModel().getSelectedItem();
             if (selected != null) {
-                productIdTxt.setText(String.valueOf(selected.getProductId()));
+                productIdTxt.setText(String.valueOf(selected.getId()));
                 modelTxt.setText(selected.getModel());
                 countTxt.setText(String.valueOf(selected.getCount()));
                 priceTxt.setText(String.valueOf(selected.getPrice()));
                 hasChargerChk.setSelected(selected.isHasCharger());
-                hasHansfreeChk.setSelected(selected.isHasHandsfree());
+                hasHeadset.setSelected(selected.isHasHeadset());
                 brandCmb.getSelectionModel().select(selected.getBrand());
-                datePick.setValue(selected.getDatePick());
+                manufactureDate.setValue(selected.getManufactureDate());
                 if (selected.getOs() == Os.IOS) iosRdo.setSelected(true);
                 else androidRdo.setSelected(true);
             }
@@ -152,7 +149,7 @@ public class ProductController implements Initializable {
     private void resetForm() {
         try (ProductDA productDA = new ProductDA()) {
 
-            productIdTxt.setText(String.valueOf(productDA.getProductId()));
+// todo : error            productIdTxt.setText(String.valueOf(productDA.getProductId()));
             modelTxt.clear();
             countTxt.clear();
             priceTxt.clear();
@@ -161,8 +158,8 @@ public class ProductController implements Initializable {
             brandCmb.getSelectionModel().selectFirst();
             iosRdo.setSelected(true);
             hasChargerChk.setSelected(false);
-            hasHansfreeChk.setSelected(false);
-            datePick.setValue(LocalDate.now());
+            hasHeadset.setSelected(false);
+            manufactureDate.setValue(LocalDate.now());
             showProductsOnTable(productDA.getAllProducts());
         } catch (Exception e) {
             log.error("Error Resetting Form: " + e.getMessage());
@@ -180,9 +177,9 @@ public class ProductController implements Initializable {
         priceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
        brandCol.setCellValueFactory(new PropertyValueFactory<>("brand"));
        osCol.setCellValueFactory(new PropertyValueFactory<>("os"));
-        dateCol.setCellValueFactory(new PropertyValueFactory<>("datePick"));
+        manufactureDateCol.setCellValueFactory(new PropertyValueFactory<>("datePick"));
         hasChargerCol.setCellValueFactory(new PropertyValueFactory<>("hasCharger"));
-        hasHandsfreeCol.setCellValueFactory(new PropertyValueFactory<>("hasHandsfree"));
+        hasHeadsetCol.setCellValueFactory(new PropertyValueFactory<>("hasHandsfree"));
 
         productTable.setItems(observableList);
 

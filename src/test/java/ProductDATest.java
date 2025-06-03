@@ -1,31 +1,31 @@
 import anbar.model.entity.Product;
 import anbar.model.entity.enums.Brand;
 import anbar.model.entity.enums.Os;
-import java.time.LocalDate;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDate;
 
-//@SuperBuilder
-//@Data
-//@NoArgsConstructor
+import anbar.model.repository.ProductDA;
+
+
 public class ProductDATest {
-//    public static void main(String[] args) {
-//        Product product =
-//                Product
-//                        .builder()
-//                        .productId(0)
-//                        .brand(Brand.IPHONE)
-//                        .model("2020")
-//                        .os(Os.ANDROID)
-//                        .hasCharger(true)
-//                        .hasHandsfree(false)
-//                        .price(1200)
-//                        .count(50)
-//                        .datePick(LocalDate.now())
-//        build();
-//
-//    }
+    public static void main(String[] args) throws Exception {
+        Product product =
+                Product
+                        .builder()
+                        .id(1)
+                        .brand(Brand.IPHONE)
+                        .model("2020")
+                        .os(Os.ANDROID)
+                        .hasCharger(true)
+                        .hasHeadset(false)
+                        .price(1200)
+                        .count(50)
+                        .manufactureDate(LocalDate.now())
+                        .build();
+
+        try(ProductDA productDA = new ProductDA()){
+            productDA.save(product);
+        }
+
+    }
 }
