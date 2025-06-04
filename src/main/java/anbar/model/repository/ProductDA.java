@@ -11,6 +11,7 @@ import java.util.List;
 
 @Log4j2
 public class ProductDA implements AutoCloseable {
+
     private Connection connection;
     private PreparedStatement preparedStatement;
 
@@ -18,12 +19,18 @@ public class ProductDA implements AutoCloseable {
         log.info("Connection DB Connected");
         connection = ConnectionProvider.getGetConnectionProvider().getconnection();
     }
-
+public int nextId() throws SQLException {
+    preparedStatement = connection.prepareStatement("select product_seq.nextval from DUAL");
+    ResultSet resultSet = preparedStatement.executeQuery();
+    resultSet.next();
+    return resultSet.getInt("nextval");
+}
 
     public void save(Product product) throws SQLException {
+
         preparedStatement = connection.prepareStatement("insert into Products values (?,?,?,?,?,?,?,?,?)");
 
-        preparedStatement.setInt(1, product.getId());
+        preparedStatement.setInt(1,product.getId());
         preparedStatement.setString(2, product.getBrand().name());
         preparedStatement.setString(3, product.getModel());
         preparedStatement.setString(4, product.getOs().name());
@@ -36,7 +43,7 @@ public class ProductDA implements AutoCloseable {
         log.info("Product saved: " + product);
     }
 
-    public void editProduct(Product product) throws SQLException {
+    public void edit(Product product) throws SQLException {
         preparedStatement = connection.prepareStatement("update Products set brand=?,model=?,os=?,has_charger=?,has_headset=?,price=?,count=?,manufacture_date=? where id=?");
 
         preparedStatement.setString(1, product.getBrand().name());
@@ -52,9 +59,8 @@ public class ProductDA implements AutoCloseable {
         log.info("Product edited: " + product);
     }
 
-    public void removeProduct(int id) throws SQLException {
-        preparedStatement = connection.prepareStatement("delete from Products where id=?");
-
+    public void remove(int id) throws SQLException {
+        preparedStatement = connection.prepareStatement("delete from products where id=?");
         preparedStatement.setInt(1, id);
         preparedStatement.execute();
         log.info("Product removed: " + id);
@@ -62,7 +68,7 @@ public class ProductDA implements AutoCloseable {
 
     public List<Product> getAllProducts() throws SQLException {
         List<Product> productsList = new ArrayList<>();
-        preparedStatement = connection.prepareStatement("select * from product");
+        preparedStatement = connection.prepareStatement("select * from products");
         ResultSet resultSet = preparedStatement.executeQuery();
         while (resultSet.next()) {
             Product product = Product.builder()

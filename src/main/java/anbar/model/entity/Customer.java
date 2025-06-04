@@ -10,7 +10,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @SuperBuilder
 public class Customer implements java.io.Serializable {
-    private int customerId;
+    private int id;
     private String nationalId;
     private String name;
     private String family;

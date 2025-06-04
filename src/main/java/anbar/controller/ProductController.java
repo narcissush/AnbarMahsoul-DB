@@ -24,16 +24,16 @@ import java.util.ResourceBundle;
 @Log4j2
 public class ProductController implements Initializable {
 
-    @FXML private TextField productIdTxt, modelTxt, countTxt, priceTxt, searchBrandTxt, searchPriceTxt;
+    @FXML private TextField idTxt, modelTxt, countTxt, priceTxt, searchBrandTxt, searchPriceTxt;
     @FXML private RadioButton iosRdo, androidRdo;
-    @FXML private CheckBox hasChargerChk, hasHeadset;
+    @FXML private CheckBox hasChargerChk, hasHeadsetChk;
     @FXML private ComboBox<Brand> brandCmb;
     @FXML private DatePicker manufactureDate;
     @FXML private Button saveBtn, editBtn, deleteBtn, SearchBtn, showAllBtn;
     @FXML private ToggleGroup osToggleGroup;
 
     @FXML private TableView<Product> productTable;
-    @FXML private TableColumn<Product, Integer> productIdCol;
+    @FXML private TableColumn<Product, Integer> idCol;
     @FXML private TableColumn<Product, String> modelCol;
     @FXML private TableColumn<Product, Integer> countCol, priceCol;
     @FXML private TableColumn<Product, Brand> brandCol;
@@ -45,7 +45,6 @@ public class ProductController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        // Fill ComboBox
         brandCmb.getItems().addAll(Brand.values());
         resetForm();
 
@@ -53,10 +52,11 @@ public class ProductController implements Initializable {
             try (ProductDA productDA = new ProductDA()) {
                 RadioButton selectOsRadio = (RadioButton) osToggleGroup.getSelectedToggle();
                 Product product = Product.builder()
+                        .id(productDA.nextId())
                         .brand(brandCmb.getSelectionModel().getSelectedItem())
                         .model(modelTxt.getText())
                         .hasCharger(hasChargerChk.isSelected())
-                        .hasHeadset(hasHeadset.isSelected())
+                        .hasHeadset(hasHeadsetChk.isSelected())
                         .os(Os.valueOf(selectOsRadio.getText()))
                         .price(Integer.parseInt(priceTxt.getText()))
                         .count(Integer.parseInt(countTxt.getText()))
@@ -77,18 +77,18 @@ public class ProductController implements Initializable {
                 Os os = iosRdo.isSelected() ? Os.IOS : Os.ANDROID;
 
                 Product product = Product.builder()
-                        .id(Integer.parseInt(productIdTxt.getText()))
+                        .id(Integer.parseInt(idTxt.getText()))
                         .model(modelTxt.getText())
                         .count(Integer.parseInt(countTxt.getText()))
                         .price(Integer.parseInt(priceTxt.getText()))
                         .hasCharger(hasChargerChk.isSelected())
-                        .hasHeadset(hasHeadset.isSelected())
+                        .hasHeadset(hasHeadsetChk.isSelected())
                         .brand(brandCmb.getSelectionModel().getSelectedItem())
                         .os(os)
                         .manufactureDate(manufactureDate.getValue())
                         .build();
-
-                productDA.editProduct(product);
+                System.out.println(product);
+                productDA.edit(product);
                 log.info("Product Edited: " + product);
                 new Alert(Alert.AlertType.INFORMATION, "Product Updated", ButtonType.OK).show();
                 resetForm();
@@ -99,8 +99,8 @@ public class ProductController implements Initializable {
 
         deleteBtn.setOnAction(event -> {
             try (ProductDA productDA = new ProductDA()) {
-                int id = Integer.parseInt(productIdTxt.getText());
-                productDA.removeProduct(id);
+                int id = Integer.parseInt(idTxt.getText());
+                productDA.remove(id);
                 new Alert(Alert.AlertType.INFORMATION, "Product Deleted", ButtonType.OK).show();
                 log.info("Product Deleted: " + id);
                 resetForm();
@@ -129,12 +129,12 @@ public class ProductController implements Initializable {
         EventHandler<Event> tableChangeEvent = (mouseEvent) -> {
             Product selected = productTable.getSelectionModel().getSelectedItem();
             if (selected != null) {
-                productIdTxt.setText(String.valueOf(selected.getId()));
+                idTxt.setText(String.valueOf(selected.getId()));
                 modelTxt.setText(selected.getModel());
                 countTxt.setText(String.valueOf(selected.getCount()));
                 priceTxt.setText(String.valueOf(selected.getPrice()));
                 hasChargerChk.setSelected(selected.isHasCharger());
-                hasHeadset.setSelected(selected.isHasHeadset());
+                hasHeadsetChk.setSelected(selected.isHasHeadset());
                 brandCmb.getSelectionModel().select(selected.getBrand());
                 manufactureDate.setValue(selected.getManufactureDate());
                 if (selected.getOs() == Os.IOS) iosRdo.setSelected(true);
@@ -149,7 +149,7 @@ public class ProductController implements Initializable {
     private void resetForm() {
         try (ProductDA productDA = new ProductDA()) {
 
-// todo : error            productIdTxt.setText(String.valueOf(productDA.getProductId()));
+            idTxt.clear();
             modelTxt.clear();
             countTxt.clear();
             priceTxt.clear();
@@ -158,30 +158,25 @@ public class ProductController implements Initializable {
             brandCmb.getSelectionModel().selectFirst();
             iosRdo.setSelected(true);
             hasChargerChk.setSelected(false);
-            hasHeadset.setSelected(false);
+            hasHeadsetChk.setSelected(false);
             manufactureDate.setValue(LocalDate.now());
             showProductsOnTable(productDA.getAllProducts());
         } catch (Exception e) {
             log.error("Error Resetting Form: " + e.getMessage());
-
         }
     }
 
     private void showProductsOnTable(List<Product> product) {
-
         ObservableList<Product> observableList = FXCollections.observableArrayList(product);
-
-        productIdCol.setCellValueFactory(new PropertyValueFactory<>("productId"));
+        idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
         modelCol.setCellValueFactory(new PropertyValueFactory<>("model"));
         countCol.setCellValueFactory(new PropertyValueFactory<>("count"));
         priceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
        brandCol.setCellValueFactory(new PropertyValueFactory<>("brand"));
        osCol.setCellValueFactory(new PropertyValueFactory<>("os"));
-        manufactureDateCol.setCellValueFactory(new PropertyValueFactory<>("datePick"));
+        manufactureDateCol.setCellValueFactory(new PropertyValueFactory<>("manufactureDate"));
         hasChargerCol.setCellValueFactory(new PropertyValueFactory<>("hasCharger"));
-        hasHeadsetCol.setCellValueFactory(new PropertyValueFactory<>("hasHandsfree"));
-
+        hasHeadsetCol.setCellValueFactory(new PropertyValueFactory<>("hasHeadset"));
         productTable.setItems(observableList);
-
     }
 }

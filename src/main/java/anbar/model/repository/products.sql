@@ -12,3 +12,12 @@ create table products(
 
 
 create sequence product_seq start with 1 increment by 1;
+
+select product_seq.nextval from DUAL;
+
+DROP SEQUENCE product_seq;
+
+
+select * from products;
+
+delete from products;

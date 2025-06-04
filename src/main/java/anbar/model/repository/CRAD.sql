@@ -14,5 +14,4 @@ update PRODUCT set PRICE=10 where BRAND='sony'
 
 
 --delete
-delete *
-from PRODUCT;
+delete from PRODUCT;

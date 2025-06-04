@@ -15,7 +15,7 @@ import java.util.ResourceBundle;
 @Log4j2
 public class CustomerController implements Initializable {
 
-    @FXML private TextField customerIdTxt,nationalIdTxt, nameTxt, familyTxt, mobileTxt, userTxt, passwordTxt;
+    @FXML private TextField idTxt,nationalIdTxt, nameTxt, familyTxt, mobileTxt, userTxt, passwordTxt;
     @FXML private RadioButton womenRbtn, menRbtn;
     @FXML private ToggleGroup genderGroup;
     @FXML private DatePicker birthDatePick;

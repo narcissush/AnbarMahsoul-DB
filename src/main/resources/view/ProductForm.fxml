@@ -83,14 +83,14 @@
                   <Insets left="15.0" />
                </padding>
             </Label>
-            <TextField fx:id="productIdTxt"   nodeOrientation="RIGHT_TO_LEFT" GridPane.columnIndex="1" />
+            <TextField fx:id="idTxt" editable="false"  nodeOrientation="RIGHT_TO_LEFT" GridPane.columnIndex="1" />
             <TextField fx:id="modelTxt" nodeOrientation="RIGHT_TO_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <ComboBox fx:id="brandCmb" nodeOrientation="RIGHT_TO_LEFT" prefHeight="25.0" prefWidth="187.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <DatePicker fx:id="manufactureDate" nodeOrientation="RIGHT_TO_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3">
                <children>
                   <CheckBox fx:id="hasChargerChk" mnemonicParsing="false" text="شارژر" />
-                  <CheckBox fx:id="hasHeadset" mnemonicParsing="false" text="هندزفری">
+                  <CheckBox fx:id="hasHeadsetChk" mnemonicParsing="false" text="هندزفری">
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin></CheckBox>
@@ -128,13 +128,13 @@
       <TableView fx:id="productTable" layoutX="12.0" layoutY="235.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="261.0" prefWidth="699.0">
         <columns>
 
-                <TableColumn fx:id="productIdCol" text="کد محصول" />
+                <TableColumn fx:id="idCol" text="کد محصول" />
                 <TableColumn fx:id="modelCol" text="مدل" />
                 <TableColumn fx:id="brandCol" text="برند" />
                 <TableColumn fx:id="osCol" text="سیستم" />
                 <TableColumn fx:id="manufactureDateCol" text="تاریخ تولید" />
             <TableColumn fx:id="hasChargerCol" text="شارژر" />
-            <TableColumn fx:id="hasHeadsetCol" text="هندزفری" />
+            <TableColumn fx:id="hasHeadsetCol" text="هدست" />
                 <TableColumn fx:id="countCol" text="تعداد" />
                 <TableColumn fx:id="priceCol" text="قیمت" />
 
