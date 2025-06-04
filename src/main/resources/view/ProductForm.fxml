@@ -83,7 +83,7 @@
                   <Insets left="15.0" />
                </padding>
             </Label>
-            <TextField fx:id="idTxt" editable="false"  nodeOrientation="RIGHT_TO_LEFT" GridPane.columnIndex="1" />
+            <TextField fx:id="idTxt" editable="false" nodeOrientation="RIGHT_TO_LEFT" GridPane.columnIndex="1" />
             <TextField fx:id="modelTxt" nodeOrientation="RIGHT_TO_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <ComboBox fx:id="brandCmb" nodeOrientation="RIGHT_TO_LEFT" prefHeight="25.0" prefWidth="187.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <DatePicker fx:id="manufactureDate" nodeOrientation="RIGHT_TO_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="3" />
@@ -170,7 +170,7 @@
       </VBox>
       <HBox alignment="CENTER_LEFT" layoutX="36.0" layoutY="192.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="31.0" prefWidth="648.0">
          <children>
-            <Label prefHeight="21.0" prefWidth="44.0" text="برند">
+            <Label prefHeight="26.0" prefWidth="89.0" text="قیمت بین">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
@@ -178,17 +178,17 @@
                   <Insets left="10.0" />
                </padding>
             </Label>
-            <TextField fx:id="searchBrandTxt">
+            <TextField fx:id="searchPrice1Txt">
                <HBox.margin>
                   <Insets left="5.0" />
                </HBox.margin>
             </TextField>
-            <Label prefHeight="21.0" prefWidth="61.0" text="قیمت">
+            <Label prefHeight="17.0" prefWidth="35.0" text="و">
                <padding>
                   <Insets left="10.0" />
                </padding>
             </Label>
-            <TextField fx:id="searchPriceTxt">
+            <TextField fx:id="searchPrice2Txt">
                <HBox.margin>
                   <Insets left="5.0" />
                </HBox.margin>
@@ -201,7 +201,7 @@
                   <Insets left="20.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="showAllBtn" mnemonicParsing="false" prefWidth="90.0" text="لغو">
+            <Button fx:id="cancelBtn" mnemonicParsing="false" prefWidth="90.0" text="لغو">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin>

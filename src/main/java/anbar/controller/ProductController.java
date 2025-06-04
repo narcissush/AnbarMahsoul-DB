@@ -24,12 +24,12 @@ import java.util.ResourceBundle;
 @Log4j2
 public class ProductController implements Initializable {
 
-    @FXML private TextField idTxt, modelTxt, countTxt, priceTxt, searchBrandTxt, searchPriceTxt;
+    @FXML private TextField idTxt, modelTxt, countTxt, priceTxt, searchPrice1Txt,searchPrice2Txt;
     @FXML private RadioButton iosRdo, androidRdo;
     @FXML private CheckBox hasChargerChk, hasHeadsetChk;
     @FXML private ComboBox<Brand> brandCmb;
     @FXML private DatePicker manufactureDate;
-    @FXML private Button saveBtn, editBtn, deleteBtn, SearchBtn, showAllBtn;
+    @FXML private Button saveBtn, editBtn, deleteBtn, SearchBtn, cancelBtn;
     @FXML private ToggleGroup osToggleGroup;
 
     @FXML private TableView<Product> productTable;
@@ -110,21 +110,17 @@ public class ProductController implements Initializable {
         });
 
         SearchBtn.setOnAction(event -> {
-//            try {
-//                showProductsOnTable(productDA.getProductsByBrand(searchBrandTxt.getText(), Integer.parseInt(searchPriceTxt.getText())));
-//            } catch (Exception e) {
-//                log.error(e.getMessage());
-//            }
+            try (ProductDA productDA = new ProductDA()) {
+                showProductsOnTable(productDA.getProductsByBrand_Price(Integer.parseInt(searchPrice1Txt.getText()), Integer.parseInt(searchPrice2Txt.getText())));
+            } catch (Exception e) {
+                    log.error("Error Deleting Product: " + e.getMessage());
+                }
+            });
+        cancelBtn.setOnAction(event -> {
+            resetForm();
         });
 
-//        showAllBtn.setOnAction(event -> {
-//
-//            try {
-//                showProductsOnTable(productDA.getAllProducts());
-//            } catch (Exception e) {
-//                log.error(e.getMessage());
-//            }
-//        });
+
 
         EventHandler<Event> tableChangeEvent = (mouseEvent) -> {
             Product selected = productTable.getSelectionModel().getSelectedItem();
@@ -153,8 +149,8 @@ public class ProductController implements Initializable {
             modelTxt.clear();
             countTxt.clear();
             priceTxt.clear();
-            searchBrandTxt.clear();
-            searchPriceTxt.clear();
+           searchPrice1Txt.clear();
+            searchPrice2Txt.clear();
             brandCmb.getSelectionModel().selectFirst();
             iosRdo.setSelected(true);
             hasChargerChk.setSelected(false);

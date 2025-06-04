@@ -85,14 +85,33 @@ public int nextId() throws SQLException {
             productsList.add(product);
         }
         return productsList;
-
     }
 
-    public void getProductsByBrand(Brand brand) throws SQLException {
-        preparedStatement = connection.prepareStatement("select * from Products where brand=?");
+    public List<Product> getProductsByBrand_Price(int price1,int price2) throws SQLException {
+        List<Product> productsList = new ArrayList<>();
+        preparedStatement = connection.prepareStatement("select * from Products where price between ? and ?");
 
-        preparedStatement.execute();
+        preparedStatement.setInt(1, price1);
+        preparedStatement.setInt(2, price2);
+
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()) {
+            Product product = Product.builder()
+                    .id(resultSet.getInt("id"))
+                    .brand(Brand.valueOf(resultSet.getString("brand")))
+                    .model(resultSet.getString("model"))
+                    .os(Os.valueOf(resultSet.getString("os")))
+                    .price(resultSet.getInt("price"))
+                    .count(resultSet.getInt("count"))
+                    .hasHeadset(resultSet.getBoolean("has_headset"))
+                    .hasCharger(resultSet.getBoolean("has_charger"))
+                    .manufactureDate(resultSet.getDate("manufacture_date").toLocalDate())
+                    .build();
+            productsList.add(product);
+        }
+        return productsList;
     }
+
 
 
     @Override
