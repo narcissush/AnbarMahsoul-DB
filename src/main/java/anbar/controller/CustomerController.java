@@ -15,67 +15,63 @@ import java.util.ResourceBundle;
 @Log4j2
 public class CustomerController implements Initializable {
 
-    @FXML private TextField idTxt,nationalIdTxt, nameTxt, familyTxt, mobileTxt, userTxt, passwordTxt;
-    @FXML private RadioButton womenRbtn, menRbtn;
-    @FXML private ToggleGroup genderGroup;
-    @FXML private DatePicker birthDatePick;
+    @FXML
+    private TextField idTxt, nationalIdTxt, nameTxt, familyTxt, phoneNumberTxt, userTxt, passwordTxt;
+    @FXML
+    private RadioButton womenRbtn, menRbtn;
+    @FXML
+    private ToggleGroup genderGroup;
+    @FXML
+    private DatePicker birthDatePick;
 
-    @FXML private Button saveBtn,backBtn;
+    @FXML
+    private Button saveBtn, backBtn;
 
-    private final CustomerDA customerDA = new CustomerDA();
 
     @Override
-   public void initialize(URL location, ResourceBundle resources) {
-//        resetForm();
-//
-//        saveBtn.setOnAction(event -> {
-//            try {
-//                Customer customer = new Customer();
-//                customerDA.saveCustomer(getCustomerFrom());
-//                log.info("Customer Saved: {}", customer);
-//                new Alert(Alert.AlertType.INFORMATION, "Customer Saved", ButtonType.OK).show();
-//                resetForm();
-//            } catch (Exception e) {
-//                log.error("Error Saving Customer: {}", e.getMessage());
-//                new Alert(Alert.AlertType.ERROR, "Error Saving Customer", ButtonType.OK).show();
-//            }
-//        });
-//        backBtn.setOnAction(event -> {
-//            //
-//        });
-//
-//
-//
-//
-//    }
-//
-//    private Customer getCustomerFrom() {
-//        Gender genderRdb = menRbtn.isSelected() ? Gender.MALE : Gender.FEMALE;
-//        Customer customer=
-//                Customer.builder()
-//                .customerId(Integer.parseInt(customerIdTxt.getText()))
-//                .name(nameTxt.getText())
-//                .family(familyTxt.getText())
-//                .nationalId(nationalIdTxt.getText())
-//                .gender(genderRdb)
-//                .birthDate(birthDatePick.getValue())
-//                .mobile(mobileTxt.getText())
-//                .username(userTxt.getText())
-//                .password(passwordTxt.getText())
-//                .build();
-//        return customer;
-//
-//    }
-//    private void resetForm() {
-//        customerIdTxt.setText(String.valueOf(CustomerDataFileManager.getManager().getNextId()));
-//        nameTxt.clear();
-//        familyTxt.clear();
-//        mobileTxt.clear();
-//        userTxt.clear();
-//        passwordTxt.clear();
-//        birthDatePick.setValue(LocalDate.now());
-//        womenRbtn.setSelected(true);
-//
-      }
+    public void initialize(URL location, ResourceBundle resources) {
+
+        resetForm();
+
+        saveBtn.setOnAction(event -> {
+            try (CustomerDA customerDA = new CustomerDA()) {
+                Gender genderRdb = menRbtn.isSelected() ? Gender.MALE : Gender.FEMALE;
+                Customer customer =
+                        Customer.builder()
+                                .id(customerDA.nextId())
+                                .name(nameTxt.getText())
+                                .family(familyTxt.getText())
+                                .nationalId(nationalIdTxt.getText())
+                                .gender(genderRdb)
+                                .birthDate(birthDatePick.getValue())
+                                .phoneNumber(phoneNumberTxt.getText())
+                                .username(userTxt.getText())
+                                .password(passwordTxt.getText())
+                                .build();
+                customerDA.save(customer);
+                resetForm();
+            } catch (Exception e) {
+                log.error("Error Saving Customer: {}", e.getMessage());
+                new Alert(Alert.AlertType.ERROR, "Error Saving Customer", ButtonType.OK).show();
+            }
+        });
+
+        backBtn.setOnAction(event -> {
+            //
+        });
+    }
+
+
+    private void resetForm() {
+        idTxt.clear();
+        nameTxt.clear();
+        familyTxt.clear();
+        phoneNumberTxt.clear();
+        userTxt.clear();
+        passwordTxt.clear();
+        birthDatePick.setValue(LocalDate.now());
+        womenRbtn.setSelected(true);
+
+    }
 }
 

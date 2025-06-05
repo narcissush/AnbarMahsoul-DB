@@ -11,13 +11,12 @@ import java.util.List;
 
 @Log4j2
 public class ProductDA implements AutoCloseable {
-
     private Connection connection;
     private PreparedStatement preparedStatement;
 
     public ProductDA() throws SQLException {
         log.info("Connection DB Connected");
-        connection = ConnectionProvider.getGetConnectionProvider().getconnection();
+        connection = ConnectionProvider.getConnectionProvider().getconnection();
     }
 public int nextId() throws SQLException {
     preparedStatement = connection.prepareStatement("select product_seq.nextval from DUAL");

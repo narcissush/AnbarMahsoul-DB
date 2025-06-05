@@ -373,3 +373,77 @@
 2025-06-05 00:35:02.818 [JavaFX Application Thread] INFO  anbar.model.repository.ProductDA - Connection DB Closed
 2025-06-05 00:35:16.218 [JavaFX Application Thread] INFO  anbar.model.repository.ProductDA - Connection DB Connected
 2025-06-05 00:35:16.274 [JavaFX Application Thread] INFO  anbar.model.repository.ProductDA - Connection DB Closed
+2025-06-05 00:39:00.035 [JavaFX Application Thread] INFO  anbar.model.repository.ProductDA - Connection DB Connected
+2025-06-05 00:39:01.030 [JavaFX Application Thread] INFO  anbar.model.repository.ProductDA - Connection DB Closed
+2025-06-05 14:25:53.671 [JavaFX Application Thread] INFO  anbar.model.repository.ProductDA - Connection DB Connected
+2025-06-05 14:25:53.819 [JavaFX Application Thread] ERROR anbar.controller.ProductController - Error Resetting Form: Cannot load JDBC driver class 'Oracle.jdbc.driver.OracleDriver'
+2025-06-05 14:28:47.556 [JavaFX Application Thread] INFO  anbar.model.repository.ProductDA - Connection DB Connected
+2025-06-05 14:28:49.585 [JavaFX Application Thread] INFO  anbar.model.repository.ProductDA - Connection DB Closed
+2025-06-05 14:29:06.047 [JavaFX Application Thread] INFO  anbar.model.repository.ProductDA - Connection DB Connected
+2025-06-05 14:29:06.082 [JavaFX Application Thread] INFO  anbar.model.repository.ProductDA - Connection DB Closed
+2025-06-05 14:29:11.335 [JavaFX Application Thread] INFO  anbar.model.repository.ProductDA - Connection DB Connected
+2025-06-05 14:29:11.339 [JavaFX Application Thread] INFO  anbar.model.repository.ProductDA - Connection DB Closed
+2025-06-05 17:42:00.465 [JavaFX Application Thread] INFO  anbar.model.repository.ProductDA - Connection DB Connected
+2025-06-05 17:42:02.039 [JavaFX Application Thread] INFO  anbar.model.repository.ProductDA - Connection DB Closed
+2025-06-05 17:43:14.879 [JavaFX Application Thread] INFO  anbar.model.repository.ProductDA - Connection DB Connected
+2025-06-05 17:43:16.027 [JavaFX Application Thread] INFO  anbar.model.repository.ProductDA - Connection DB Closed
+2025-06-05 17:43:25.334 [JavaFX Application Thread] INFO  anbar.model.repository.ProductDA - Connection DB Connected
+2025-06-05 17:43:26.501 [JavaFX Application Thread] INFO  anbar.model.repository.ProductDA - Connection DB Closed
+2025-06-05 17:44:03.475 [JavaFX Application Thread] ERROR anbar.AppForm - java.lang.NullPointerException: Location is required.
+2025-06-05 17:46:01.208 [JavaFX Application Thread] INFO  anbar.model.repository.CustomerDA - Connection DB Connected
+2025-06-05 17:46:02.903 [JavaFX Application Thread] INFO  anbar.model.repository.CustomerDA - Connection DB Closed
+2025-06-05 17:46:44.503 [JavaFX Application Thread] INFO  anbar.model.repository.CustomerDA - Connection DB Connected
+2025-06-05 17:46:44.510 [JavaFX Application Thread] INFO  anbar.model.repository.CustomerDA - Connection DB Closed
+2025-06-05 17:46:44.516 [JavaFX Application Thread] ERROR anbar.controller.CustomerController - Error Saving Customer: For input string: ""
+2025-06-05 17:48:00.271 [JavaFX Application Thread] INFO  anbar.model.repository.CustomerDA - Connection DB Connected
+2025-06-05 17:48:01.363 [JavaFX Application Thread] INFO  anbar.model.repository.CustomerDA - Connection DB Closed
+2025-06-05 17:48:01.369 [JavaFX Application Thread] ERROR anbar.controller.CustomerController - Error Saving Customer: ORA-17003: Invalid column index
+2025-06-05 17:53:55.526 [main] INFO  anbar.model.repository.CustomerDA - Connection DB Connected
+2025-06-05 17:53:56.923 [main] INFO  anbar.model.repository.CustomerDA - Connection DB Closed
+2025-06-05 18:00:55.259 [main] INFO  anbar.model.repository.CustomerDA - Connection DB Connected
+2025-06-05 18:00:56.649 [main] INFO  anbar.model.repository.CustomerDA - Connection DB Closed
+2025-06-05 18:01:13.925 [JavaFX Application Thread] INFO  anbar.model.repository.ProductDA - Connection DB Connected
+2025-06-05 18:01:15.058 [JavaFX Application Thread] INFO  anbar.model.repository.ProductDA - Connection DB Closed
+2025-06-05 18:01:26.363 [JavaFX Application Thread] INFO  anbar.model.repository.ProductDA - Connection DB Connected
+2025-06-05 18:01:26.448 [JavaFX Application Thread] INFO  anbar.model.repository.ProductDA - Product saved: Product(id=7, brand=SAMSUNG, model=12, os=IOS, hasCharger=false, hasHeadset=false, price=1, count=1, manufactureDate=2025-06-05)
+2025-06-05 18:01:26.448 [JavaFX Application Thread] INFO  anbar.controller.ProductController - Product Created: Product(id=7, brand=SAMSUNG, model=12, os=IOS, hasCharger=false, hasHeadset=false, price=1, count=1, manufactureDate=2025-06-05)
+2025-06-05 18:01:26.519 [JavaFX Application Thread] INFO  anbar.model.repository.ProductDA - Connection DB Connected
+2025-06-05 18:01:26.579 [JavaFX Application Thread] INFO  anbar.model.repository.ProductDA - Connection DB Closed
+2025-06-05 18:01:26.579 [JavaFX Application Thread] INFO  anbar.model.repository.ProductDA - Connection DB Closed
+2025-06-05 18:01:39.659 [JavaFX Application Thread] INFO  anbar.model.repository.ProductDA - Connection DB Connected
+2025-06-05 18:01:39.663 [JavaFX Application Thread] INFO  anbar.model.repository.ProductDA - Product saved: Product(id=8, brand=SAMSUNG, model=1, os=IOS, hasCharger=false, hasHeadset=false, price=1, count=1, manufactureDate=2025-06-05)
+2025-06-05 18:01:39.663 [JavaFX Application Thread] INFO  anbar.controller.ProductController - Product Created: Product(id=8, brand=SAMSUNG, model=1, os=IOS, hasCharger=false, hasHeadset=false, price=1, count=1, manufactureDate=2025-06-05)
+2025-06-05 18:01:39.689 [JavaFX Application Thread] INFO  anbar.model.repository.ProductDA - Connection DB Connected
+2025-06-05 18:01:39.694 [JavaFX Application Thread] INFO  anbar.model.repository.ProductDA - Connection DB Closed
+2025-06-05 18:01:39.695 [JavaFX Application Thread] INFO  anbar.model.repository.ProductDA - Connection DB Closed
+2025-06-05 18:13:35.959 [JavaFX Application Thread] ERROR anbar.AppForm - java.lang.NullPointerException: Location is required.
+2025-06-05 18:14:29.254 [main] INFO  anbar.model.repository.CustomerDA - Connection DB Connected
+2025-06-05 18:14:30.483 [main] INFO  anbar.model.repository.CustomerDA - Connection DB Closed
+2025-06-05 18:16:06.167 [main] INFO  anbar.model.repository.CustomerDA - Connection DB Connected
+2025-06-05 18:16:07.943 [main] INFO  anbar.model.repository.CustomerDA - Customer saved: Customer(id=10, nationalId=0080386822, name=narges, family=hajizadeh, gender=MALE, birthDate=2025-06-05, phoneNumber=09128179120, username=narci, password=123)
+2025-06-05 18:16:07.943 [main] INFO  anbar.model.repository.CustomerDA - Connection DB Closed
+2025-06-05 18:19:50.473 [JavaFX Application Thread] INFO  anbar.model.repository.CustomerDA - Connection DB Connected
+2025-06-05 18:19:51.561 [JavaFX Application Thread] INFO  anbar.model.repository.CustomerDA - Customer saved: Customer(id=11, nationalId=0080386822, name=narges, family=hajizadeh, gender=FEMALE, birthDate=2025-06-05, phoneNumber=09128179120, username=narges, password=123)
+2025-06-05 18:19:51.562 [JavaFX Application Thread] INFO  anbar.model.repository.CustomerDA - Connection DB Closed
+2025-06-05 18:20:02.213 [JavaFX Application Thread] INFO  anbar.model.repository.CustomerDA - Connection DB Connected
+2025-06-05 18:20:02.385 [JavaFX Application Thread] INFO  anbar.model.repository.ProductDA - Connection DB Connected
+2025-06-05 18:20:02.429 [JavaFX Application Thread] INFO  anbar.model.repository.ProductDA - Connection DB Closed
+2025-06-05 18:20:02.794 [JavaFX Application Thread] INFO  anbar.model.repository.CustomerDA - Connection DB Closed
+2025-06-05 18:20:23.326 [JavaFX Application Thread] INFO  anbar.model.repository.ProductDA - Connection DB Connected
+2025-06-05 18:20:23.342 [JavaFX Application Thread] INFO  anbar.model.repository.ProductDA - Product edited: Product(id=1, brand=IPHONE, model=iphone11, os=IOS, hasCharger=true, hasHeadset=false, price=1200, count=100, manufactureDate=2025-06-04)
+2025-06-05 18:20:23.342 [JavaFX Application Thread] INFO  anbar.controller.ProductController - Product Edited: Product(id=1, brand=IPHONE, model=iphone11, os=IOS, hasCharger=true, hasHeadset=false, price=1200, count=100, manufactureDate=2025-06-04)
+2025-06-05 18:20:23.391 [JavaFX Application Thread] INFO  anbar.model.repository.ProductDA - Connection DB Connected
+2025-06-05 18:20:23.396 [JavaFX Application Thread] INFO  anbar.model.repository.ProductDA - Connection DB Closed
+2025-06-05 18:20:23.396 [JavaFX Application Thread] INFO  anbar.model.repository.ProductDA - Connection DB Closed
+2025-06-05 18:20:30.408 [JavaFX Application Thread] INFO  anbar.model.repository.ProductDA - Connection DB Connected
+2025-06-05 18:20:30.415 [JavaFX Application Thread] INFO  anbar.model.repository.ProductDA - Product removed: 8
+2025-06-05 18:20:30.438 [JavaFX Application Thread] INFO  anbar.controller.ProductController - Product Deleted: 8
+2025-06-05 18:20:30.439 [JavaFX Application Thread] INFO  anbar.model.repository.ProductDA - Connection DB Connected
+2025-06-05 18:20:30.444 [JavaFX Application Thread] INFO  anbar.model.repository.ProductDA - Connection DB Closed
+2025-06-05 18:20:30.444 [JavaFX Application Thread] INFO  anbar.model.repository.ProductDA - Connection DB Closed
+2025-06-05 18:20:49.809 [JavaFX Application Thread] INFO  anbar.model.repository.ProductDA - Connection DB Connected
+2025-06-05 18:20:49.812 [JavaFX Application Thread] INFO  anbar.model.repository.ProductDA - Product edited: Product(id=7, brand=SAMSUNG, model=12, os=IOS, hasCharger=false, hasHeadset=false, price=1100, count=5, manufactureDate=2025-06-05)
+2025-06-05 18:20:49.812 [JavaFX Application Thread] INFO  anbar.controller.ProductController - Product Edited: Product(id=7, brand=SAMSUNG, model=12, os=IOS, hasCharger=false, hasHeadset=false, price=1100, count=5, manufactureDate=2025-06-05)
+2025-06-05 18:20:49.835 [JavaFX Application Thread] INFO  anbar.model.repository.ProductDA - Connection DB Connected
+2025-06-05 18:20:49.841 [JavaFX Application Thread] INFO  anbar.model.repository.ProductDA - Connection DB Closed
+2025-06-05 18:20:49.842 [JavaFX Application Thread] INFO  anbar.model.repository.ProductDA - Connection DB Closed

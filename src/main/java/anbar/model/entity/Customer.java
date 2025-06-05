@@ -16,7 +16,7 @@ public class Customer implements java.io.Serializable {
     private String family;
     private Gender gender;
     private LocalDate birthDate;
-    private String mobile;
+    private String phoneNumber;
     private String username;
     private String password;
 

@@ -69,7 +69,7 @@
 
              </HBox>
             <DatePicker fx:id="birthDatePick" nodeOrientation="RIGHT_TO_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-             <TextField fx:id="mobileTxt" nodeOrientation="RIGHT_TO_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+             <TextField fx:id="phoneNumberTxt" nodeOrientation="RIGHT_TO_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="6" />
 
             <TextField fx:id="userTxt" nodeOrientation="RIGHT_TO_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="7" />
             <PasswordField fx:id="passwordTxt" GridPane.columnIndex="1" GridPane.rowIndex="8" />

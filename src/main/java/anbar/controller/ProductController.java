@@ -175,4 +175,5 @@ public class ProductController implements Initializable {
         hasHeadsetCol.setCellValueFactory(new PropertyValueFactory<>("hasHeadset"));
         productTable.setItems(observableList);
     }
+
 }
