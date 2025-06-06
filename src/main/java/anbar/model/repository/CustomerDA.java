@@ -98,8 +98,10 @@ return customerList;
     @Override
     public void close() throws Exception {
         log.info("Connection DB Closed");
+        if (preparedStatement != null) {
+            preparedStatement.close();
+        }
         connection.close();
-        preparedStatement.close();
     }
 }
 

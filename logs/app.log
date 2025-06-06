@@ -491,3 +491,11 @@
 2025-06-06 23:28:40.816 [JavaFX Application Thread] INFO  anbar.model.repository.CustomerDA - Connection DB Connected
 2025-06-06 23:28:42.623 [JavaFX Application Thread] INFO  anbar.model.repository.CustomerDA - Customer saved: Customer(id=22, nationalId=0040203010, name=mohsen, family=roshanaie, gender=FEMALE, birthDate=2025-06-06, phoneNumber=09123987298, username=mohsen, password=Narci$123)
 2025-06-06 23:28:42.625 [JavaFX Application Thread] INFO  anbar.model.repository.CustomerDA - Connection DB Closed
+2025-06-06 23:34:50.233 [JavaFX Application Thread] INFO  anbar.model.repository.CustomerDA - Connection DB Connected
+2025-06-06 23:34:52.158 [JavaFX Application Thread] INFO  anbar.model.repository.CustomerDA - Connection DB Closed
+2025-06-06 23:35:08.167 [JavaFX Application Thread] INFO  anbar.model.repository.CustomerDA - Connection DB Connected
+2025-06-06 23:35:08.225 [JavaFX Application Thread] INFO  anbar.model.repository.CustomerDA - Connection DB Closed
+2025-06-06 23:35:57.864 [JavaFX Application Thread] INFO  anbar.model.repository.CustomerDA - Connection DB Connected
+2025-06-06 23:36:00.077 [JavaFX Application Thread] INFO  anbar.model.repository.ProductDA - Connection DB Connected
+2025-06-06 23:36:00.160 [JavaFX Application Thread] INFO  anbar.model.repository.ProductDA - Connection DB Closed
+2025-06-06 23:36:00.920 [JavaFX Application Thread] INFO  anbar.model.repository.CustomerDA - Connection DB Closed
