@@ -27,8 +27,11 @@ public class CustomerDATest {
 //        }
 
         CustomerController customerController = new CustomerController();
-        System.out.println(customerController.checkInputPassword("Ali_123"));
-        System.out.println(customerController.checkInputUsername("P@ssword2025!"));
+        System.out.println(customerController.isValidName("narci"));
+        System.out.println(customerController.isValidFamily("haji123"));
+        System.out.println(customerController.isValidNationalId("0020"));
+        System.out.println(customerController.isValidUsername("narci"));
+        System.out.println(customerController.isValidPassword("narci"));
 
     }
 }

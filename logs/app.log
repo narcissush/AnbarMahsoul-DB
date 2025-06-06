@@ -459,3 +459,35 @@
 2025-06-06 00:17:19.239 [JavaFX Application Thread] INFO  anbar.model.repository.CustomerDA - Connection DB Closed
 2025-06-06 00:18:24.285 [JavaFX Application Thread] INFO  anbar.controller.CustomerController - Invalid Username or Password
 2025-06-06 00:18:41.822 [JavaFX Application Thread] INFO  anbar.controller.CustomerController - Invalid Username or Password
+2025-06-06 00:36:27.031 [JavaFX Application Thread] INFO  anbar.controller.CustomerController - Invalid Username
+2025-06-06 00:36:27.036 [JavaFX Application Thread] INFO  anbar.controller.CustomerController - Invalid Username or Password
+2025-06-06 00:36:37.565 [JavaFX Application Thread] INFO  anbar.controller.CustomerController - Invalid Password
+2025-06-06 00:36:37.565 [JavaFX Application Thread] INFO  anbar.controller.CustomerController - Invalid Username or Password
+2025-06-06 00:36:51.557 [JavaFX Application Thread] INFO  anbar.controller.CustomerController - Invalid Password
+2025-06-06 00:36:51.558 [JavaFX Application Thread] INFO  anbar.controller.CustomerController - Invalid Username or Password
+2025-06-06 00:37:04.057 [JavaFX Application Thread] INFO  anbar.controller.CustomerController - Invalid Password
+2025-06-06 00:37:04.058 [JavaFX Application Thread] INFO  anbar.controller.CustomerController - Invalid Username or Password
+2025-06-06 00:37:24.569 [JavaFX Application Thread] INFO  anbar.controller.CustomerController - Invalid Password
+2025-06-06 00:37:24.569 [JavaFX Application Thread] INFO  anbar.controller.CustomerController - Invalid Username or Password
+2025-06-06 00:37:47.187 [JavaFX Application Thread] INFO  anbar.controller.CustomerController - Invalid Password
+2025-06-06 00:37:47.188 [JavaFX Application Thread] INFO  anbar.controller.CustomerController - Invalid Username or Password
+2025-06-06 00:39:13.053 [main] INFO  anbar.controller.CustomerController - Invalid Password
+2025-06-06 00:39:13.057 [main] INFO  anbar.controller.CustomerController - Invalid Username
+2025-06-06 00:39:53.680 [main] INFO  anbar.controller.CustomerController - Invalid Password
+2025-06-06 00:39:53.687 [main] INFO  anbar.controller.CustomerController - Invalid Username
+2025-06-06 00:41:55.053 [main] INFO  anbar.controller.CustomerController - Invalid Password
+2025-06-06 00:41:55.058 [main] INFO  anbar.controller.CustomerController - Invalid Username
+2025-06-06 12:57:23.184 [JavaFX Application Thread] INFO  anbar.model.repository.CustomerDA - Connection DB Connected
+2025-06-06 12:57:25.167 [JavaFX Application Thread] INFO  anbar.model.repository.CustomerDA - Customer saved: Customer(id=12, nationalId=0080386822, name=mina, family=ahmadi, gender=FEMALE, birthDate=2025-06-06, phoneNumber=09123987298, username=narci_h2, password=Narci@123)
+2025-06-06 12:57:25.171 [JavaFX Application Thread] INFO  anbar.model.repository.CustomerDA - Connection DB Closed
+2025-06-06 23:23:15.030 [JavaFX Application Thread] INFO  anbar.model.repository.CustomerDA - Connection DB Connected
+2025-06-06 23:23:17.268 [JavaFX Application Thread] INFO  anbar.model.repository.CustomerDA - Customer saved: Customer(id=21, nationalId=0080386822, name=narges, family=hajizadeh, gender=FEMALE, birthDate=2025-06-06, phoneNumber=0912, username=narci, password=narci$123)
+2025-06-06 23:23:17.270 [JavaFX Application Thread] INFO  anbar.model.repository.CustomerDA - Connection DB Closed
+2025-06-06 23:27:26.240 [JavaFX Application Thread] ERROR anbar.controller.CustomerController - Invalid Data Input Error
+2025-06-06 23:27:41.009 [JavaFX Application Thread] ERROR anbar.controller.CustomerController - Invalid Data Input Error
+2025-06-06 23:27:54.547 [JavaFX Application Thread] ERROR anbar.controller.CustomerController - Invalid Data Input Error
+2025-06-06 23:28:11.549 [JavaFX Application Thread] ERROR anbar.controller.CustomerController - Invalid Data Input Error
+2025-06-06 23:28:26.558 [JavaFX Application Thread] ERROR anbar.controller.CustomerController - Invalid Data Input Error
+2025-06-06 23:28:40.816 [JavaFX Application Thread] INFO  anbar.model.repository.CustomerDA - Connection DB Connected
+2025-06-06 23:28:42.623 [JavaFX Application Thread] INFO  anbar.model.repository.CustomerDA - Customer saved: Customer(id=22, nationalId=0040203010, name=mohsen, family=roshanaie, gender=FEMALE, birthDate=2025-06-06, phoneNumber=09123987298, username=mohsen, password=Narci$123)
+2025-06-06 23:28:42.625 [JavaFX Application Thread] INFO  anbar.model.repository.CustomerDA - Connection DB Closed

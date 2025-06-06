@@ -19,7 +19,7 @@ select * from customer;
 delete from customer where nationalid='0080386822';
 
 --update
-    update customer set;
+    update customer set password=? where nationalid=?;
 
 
 --sequence
