@@ -51,7 +51,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="signInBtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="243.0" text="وارد شوید" />
+            <Button fx:id="signInBtn" defaultButton="true" mnemonicParsing="false" prefHeight="25.0" prefWidth="243.0" text="وارد شوید" />
             <Button fx:id="signOutBtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="243.0" text="عضو شوید" GridPane.rowIndex="1" />
          </children>
       </GridPane>

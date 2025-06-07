@@ -21,3 +21,5 @@ select * from Products where brand='SONY' and price>=2000;
 select * from products;
 
 delete from products;
+
+DROP table PRODUCT;

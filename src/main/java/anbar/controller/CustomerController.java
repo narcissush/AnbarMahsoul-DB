@@ -6,8 +6,10 @@ import anbar.model.entity.enums.Gender;
 import anbar.model.repository.CustomerDA;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 import lombok.extern.log4j.Log4j2;
 
 import java.net.URL;
@@ -69,7 +71,13 @@ public class CustomerController implements Initializable {
                 log.error("Invalid Data Input Error");
             }
         });
+
+        backBtn.setOnAction(event -> {
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.close();
+        });
     }
+
 
     private void resetForm() {
         idTxt.clear();
@@ -91,7 +99,6 @@ public class CustomerController implements Initializable {
         invalidFamilyImg.setVisible(false);
         validUsernameImg.setVisible(false);
         invalidUsernameImg.setVisible(false);
-
 
 
     }
@@ -116,6 +123,7 @@ public class CustomerController implements Initializable {
         }else {
             validFamilyImg.setVisible(false);
             invalidFamilyImg.setVisible(true);
+            //throw new InvalidPersonDataException("Invalid family");
             return false;
         }
         }
@@ -147,7 +155,7 @@ public class CustomerController implements Initializable {
         }
 
     private boolean isValidPassword(String password) {
-            if (Pattern.matches("^(?=.*[a-zA-Z]a)(?=.*\\d)(?=.*[#$%@&]).{6,20}$", password))
+            if (Pattern.matches("^(?=.*[a-zA-Z]{2})(?=.*[0-9]{2})(?=.*[@#$&]{1}).{6,20}$", password))
             {
                 validPasswordImg.setVisible(true);
                 invalidPasswordImg.setVisible(false);

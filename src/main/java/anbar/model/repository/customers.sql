@@ -29,5 +29,7 @@ select customer_seq.nextval from DUAL;
 
 DROP SEQUENCE customer_seq;
 
+DROP table customer;
+
 
 
