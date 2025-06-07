@@ -1,17 +1,15 @@
 ----cteate
-insert into PRODUCT(id, brand, model, os, hascharger, hashansfree, price, count, birth_date)
-VALUES (2,'samsung','135','android',1,1,115,15,null)
+insert into PRODUCTs(id, brand, model, os, HAS_CHARGER, HAS_HEADSET, price, count, MANUFACTURE_DATE)
+VALUES (2,'samsung','135','android',1,1,115,15,null);
 
 
 --select
-select * from PRODUCT where os='ios'
-
-
+select * from PRODUCTs where os='ios';
 
 
 --update
-update PRODUCT set PRICE=10 where BRAND='sony'
+update PRODUCTs set PRICE=10 where BRAND='sony';
 
 
 --delete
-delete from PRODUCT;
+delete from PRODUCTs;

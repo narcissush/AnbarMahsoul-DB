@@ -32,7 +32,7 @@ public class CustomerController implements Initializable {
     @FXML
     private Button saveBtn, backBtn;
     @FXML
-    private ImageView validNationalidImg,invalidNationalidImg,validNameImg,invalidNameImg,validFamilyImg,invalidFamilyImg,validUsernameImg,invalidUsernameImg,validPasswordImg,invalidPasswordImg;
+    private ImageView validNationalidImg, invalidNationalidImg, validNameImg, invalidNameImg, validFamilyImg, invalidFamilyImg, validUsernameImg, invalidUsernameImg, validPasswordImg, invalidPasswordImg;
 
 
     @Override
@@ -78,7 +78,6 @@ public class CustomerController implements Initializable {
         });
     }
 
-
     private void resetForm() {
         idTxt.clear();
         nameTxt.clear();
@@ -102,69 +101,66 @@ public class CustomerController implements Initializable {
 
 
     }
+
     private boolean isValidName(String name) {
-            if (Pattern.matches("^[a-zA-Z\\s]{3,30}$", name)) {
-                validNameImg.setVisible(true);
-                invalidNameImg.setVisible(false);
-                return true;
-            }else {
-                validNameImg.setVisible(false);
-                invalidNameImg.setVisible(true);
-                return false;
-            }
+        if (Pattern.matches("^[a-zA-Z\\s]{3,30}$", name)) {
+            validNameImg.setVisible(true);
+            invalidNameImg.setVisible(false);
+            return true;
+        } else {
+            validNameImg.setVisible(false);
+            invalidNameImg.setVisible(true);
+            return false;
         }
+    }
 
     private boolean isValidFamily(String family) {
-            if (Pattern.matches("^[a-zA-Z\\s]{3,30}$", family))
-        {
+        if (Pattern.matches("^[a-zA-Z\\s]{3,30}$", family)) {
             validFamilyImg.setVisible(true);
             invalidFamilyImg.setVisible(false);
             return true;
-        }else {
+        } else {
             validFamilyImg.setVisible(false);
             invalidFamilyImg.setVisible(true);
             //throw new InvalidPersonDataException("Invalid family");
             return false;
         }
-        }
+    }
 
     private boolean isValidNationalId(String nationalId) {
-            if (Pattern.matches("^\\d{10}$", nationalId))
-            {
-               validNationalidImg.setVisible(true);
-                invalidNationalidImg.setVisible(false);
-                return true;
-            }else {
-                validNationalidImg.setVisible(false);
-                invalidNationalidImg.setVisible(true);
-                return false;
-            }
+        if (Pattern.matches("^\\d{10}$", nationalId)) {
+            validNationalidImg.setVisible(true);
+            invalidNationalidImg.setVisible(false);
+            return true;
+        } else {
+            validNationalidImg.setVisible(false);
+            invalidNationalidImg.setVisible(true);
+            return false;
+        }
     }
 
     private boolean isValidUsername(String username) {
-            if (Pattern.matches("^[a-zA-Z][a-zA-Z0-9_.]{4,19}$", username))
-            {
-                validUsernameImg.setVisible(true);
-                invalidUsernameImg.setVisible(false);
-                return true;
-            }else {
-                validUsernameImg.setVisible(false);
-                invalidUsernameImg.setVisible(true);
-                return false;
-            }
+        if (Pattern.matches("^[a-zA-Z][a-zA-Z0-9_.]{4,19}$", username)) {
+            validUsernameImg.setVisible(true);
+            invalidUsernameImg.setVisible(false);
+            return true;
+        } else {
+            validUsernameImg.setVisible(false);
+            invalidUsernameImg.setVisible(true);
+            return false;
         }
+    }
 
     private boolean isValidPassword(String password) {
-            if (Pattern.matches("^(?=.*[a-zA-Z]{2})(?=.*[0-9]{2})(?=.*[@#$&]{1}).{6,20}$", password))
-            {
-                validPasswordImg.setVisible(true);
-                invalidPasswordImg.setVisible(false);
-                return true;
-            }else {
-                validPasswordImg.setVisible(false);
-                invalidPasswordImg.setVisible(true);
-                return false;
-            }
+        if (Pattern.matches("^(?=.*[a-zA-Z]{2})(?=.*[0-9]{2})(?=.*[@#$&]{1}).{6,20}$", password)) {
+            validPasswordImg.setVisible(true);
+            invalidPasswordImg.setVisible(false);
+            return true;
+        } else {
+            validPasswordImg.setVisible(false);
+            invalidPasswordImg.setVisible(true);
+            return false;
         }
+    }
 
 }

@@ -20,27 +20,40 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 
-
 @Log4j2
 public class ProductController implements Initializable {
 
-    @FXML private TextField idTxt, modelTxt, countTxt, priceTxt, searchPrice1Txt,searchPrice2Txt;
-    @FXML private RadioButton iosRdo, androidRdo;
-    @FXML private CheckBox hasChargerChk, hasHeadsetChk;
-    @FXML private ComboBox<Brand> brandCmb;
-    @FXML private DatePicker manufactureDate;
-    @FXML private Button saveBtn, editBtn, deleteBtn, SearchBtn, cancelBtn;
-    @FXML private ToggleGroup osToggleGroup;
+    @FXML
+    private TextField idTxt, modelTxt, countTxt, priceTxt, searchPrice1Txt, searchPrice2Txt;
+    @FXML
+    private RadioButton iosRdo, androidRdo;
+    @FXML
+    private CheckBox hasChargerChk, hasHeadsetChk;
+    @FXML
+    private ComboBox<Brand> brandCmb;
+    @FXML
+    private DatePicker manufactureDate;
+    @FXML
+    private Button saveBtn, editBtn, deleteBtn, SearchBtn, cancelBtn;
+    @FXML
+    private ToggleGroup osToggleGroup;
 
-    @FXML private TableView<Product> productTable;
-    @FXML private TableColumn<Product, Integer> idCol;
-    @FXML private TableColumn<Product, String> modelCol;
-    @FXML private TableColumn<Product, Integer> countCol, priceCol;
-    @FXML private TableColumn<Product, Brand> brandCol;
-    @FXML private TableColumn<Product, Os> osCol;
-    @FXML private TableColumn<Product, LocalDate> manufactureDateCol;
-    @FXML private TableColumn<Product, Boolean> hasChargerCol, hasHeadsetCol;
-
+    @FXML
+    private TableView<Product> productTable;
+    @FXML
+    private TableColumn<Product, Integer> idCol;
+    @FXML
+    private TableColumn<Product, String> modelCol;
+    @FXML
+    private TableColumn<Product, Integer> countCol, priceCol;
+    @FXML
+    private TableColumn<Product, Brand> brandCol;
+    @FXML
+    private TableColumn<Product, Os> osCol;
+    @FXML
+    private TableColumn<Product, LocalDate> manufactureDateCol;
+    @FXML
+    private TableColumn<Product, Boolean> hasChargerCol, hasHeadsetCol;
 
 
     @Override
@@ -113,13 +126,12 @@ public class ProductController implements Initializable {
             try (ProductDA productDA = new ProductDA()) {
                 showProductsOnTable(productDA.getProductsByBrand_Price(Integer.parseInt(searchPrice1Txt.getText()), Integer.parseInt(searchPrice2Txt.getText())));
             } catch (Exception e) {
-                    log.error("Error Deleting Product: " + e.getMessage());
-                }
-            });
+                log.error("Error Deleting Product: " + e.getMessage());
+            }
+        });
         cancelBtn.setOnAction(event -> {
             resetForm();
         });
-
 
 
         EventHandler<Event> tableChangeEvent = (mouseEvent) -> {
@@ -149,7 +161,7 @@ public class ProductController implements Initializable {
             modelTxt.clear();
             countTxt.clear();
             priceTxt.clear();
-           searchPrice1Txt.clear();
+            searchPrice1Txt.clear();
             searchPrice2Txt.clear();
             brandCmb.getSelectionModel().selectFirst();
             iosRdo.setSelected(true);
@@ -168,8 +180,8 @@ public class ProductController implements Initializable {
         modelCol.setCellValueFactory(new PropertyValueFactory<>("model"));
         countCol.setCellValueFactory(new PropertyValueFactory<>("count"));
         priceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
-       brandCol.setCellValueFactory(new PropertyValueFactory<>("brand"));
-       osCol.setCellValueFactory(new PropertyValueFactory<>("os"));
+        brandCol.setCellValueFactory(new PropertyValueFactory<>("brand"));
+        osCol.setCellValueFactory(new PropertyValueFactory<>("os"));
         manufactureDateCol.setCellValueFactory(new PropertyValueFactory<>("manufactureDate"));
         hasChargerCol.setCellValueFactory(new PropertyValueFactory<>("hasCharger"));
         hasHeadsetCol.setCellValueFactory(new PropertyValueFactory<>("hasHeadset"));

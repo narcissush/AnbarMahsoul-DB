@@ -17,7 +17,7 @@ public class AppForm extends Application {
             primaryStage.setTitle("anbar.AppForm");
             primaryStage.setScene(scene);
             primaryStage.show();
-        }catch (Exception e){
+        } catch (Exception e) {
             log.error(e);
         }
     }

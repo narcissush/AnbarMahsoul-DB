@@ -11,6 +11,12 @@ create table customer (
 
 );
 
+--insert
+insert into customer
+(id, nationalid, name, family, gender, birth_date, phone_number, username, password)
+VALUES
+(20,'0011223344','narges','hajizadeh','WOMEN','1986.04.21','09123987298','narges','Nvd@123';
+
 --select
 select * from customer;
 
@@ -19,17 +25,24 @@ select * from customer;
 delete from customer where nationalid='0080386822';
 
 --update
-    update customer set password=? where nationalid=?;
+update customer set password=? where nationalid=?;
+
+--delete table
+DROP table customer;
+
 
 
 --sequence
+--create
 create sequence customer_seq start with 1 increment by 1;
 
+--select
 select customer_seq.nextval from DUAL;
 
+--delete Table
 DROP SEQUENCE customer_seq;
 
-DROP table customer;
+
 
 
 

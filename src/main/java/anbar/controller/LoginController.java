@@ -11,11 +11,12 @@ import lombok.extern.log4j.Log4j2;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
 @Log4j2
 
 public class LoginController implements Initializable {
     @FXML
-    private TextField logInUserTxt,logInPasswordTxt;
+    private TextField logInUserTxt, logInPasswordTxt;
     @FXML
     private Button signInBtn, signOutBtn;
 
@@ -49,7 +50,7 @@ public class LoginController implements Initializable {
                 registerStage.show();
 
 
-            }catch (Exception e1) {
+            } catch (Exception e1) {
                 log.error(e1.getMessage());
             }
         });
