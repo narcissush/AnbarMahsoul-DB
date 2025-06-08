@@ -558,3 +558,13 @@
 2025-06-07 09:12:09.927 [JavaFX Application Thread] INFO  anbar.model.repository.ProductDA - Connection DB Closed
 2025-06-07 09:12:09.928 [JavaFX Application Thread] INFO  anbar.model.repository.ProductDA - Connection DB Closed
 2025-06-07 09:12:48.047 [JavaFX Application Thread] ERROR anbar.controller.CustomerController - Invalid Data Input Error
+2025-06-08 16:18:22.752 [JavaFX Application Thread] ERROR anbar.controller.CustomerController - Invalid Data Input Error
+2025-06-08 16:18:50.901 [JavaFX Application Thread] ERROR anbar.controller.CustomerController - Invalid Data Input Error
+2025-06-08 16:18:59.095 [JavaFX Application Thread] INFO  anbar.model.repository.CustomerDA - Connection DB Connected
+2025-06-08 16:19:00.528 [JavaFX Application Thread] INFO  anbar.model.repository.CustomerDA - Customer saved: Customer(id=21, nationalId=0033559977, name=mina, family=agmadi, gender=FEMALE, birthDate=2025-06-08, phoneNumber=0912123456, username=mina_123, password=Mina@123)
+2025-06-08 16:19:00.529 [JavaFX Application Thread] INFO  anbar.model.repository.CustomerDA - Connection DB Closed
+2025-06-08 16:21:24.361 [JavaFX Application Thread] ERROR anbar.controller.CustomerController - Invalid Data Input Error
+2025-06-08 16:21:32.973 [JavaFX Application Thread] ERROR anbar.controller.CustomerController - Invalid Data Input Error
+2025-06-08 16:21:43.558 [JavaFX Application Thread] INFO  anbar.model.repository.CustomerDA - Connection DB Connected
+2025-06-08 16:21:44.738 [JavaFX Application Thread] INFO  anbar.model.repository.CustomerDA - Customer saved: Customer(id=22, nationalId=1234567890, name=rashan, family=otto, gender=FEMALE, birthDate=2025-06-08, phoneNumber=09121234567, username=rashan, password=Rashan@123)
+2025-06-08 16:21:44.740 [JavaFX Application Thread] INFO  anbar.model.repository.CustomerDA - Connection DB Closed

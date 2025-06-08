@@ -83,20 +83,21 @@ public class CustomerController implements Initializable {
         nameTxt.clear();
         familyTxt.clear();
         phoneNumberTxt.clear();
+        nationalIdTxt.clear();
         usernameTxt.clear();
         passwordTxt.clear();
         birthDatePick.setValue(LocalDate.now());
         womenRbtn.setSelected(true);
 
-        validPasswordImg.setVisible(false);
+        //validPasswordImg.setVisible(false);
         invalidPasswordImg.setVisible(false);
-        validNationalidImg.setVisible(false);
+        //validNationalidImg.setVisible(false);
         invalidNationalidImg.setVisible(false);
-        validNameImg.setVisible(false);
+        //validNameImg.setVisible(false);
         invalidNameImg.setVisible(false);
-        validFamilyImg.setVisible(false);
+        //validFamilyImg.setVisible(false);
         invalidFamilyImg.setVisible(false);
-        validUsernameImg.setVisible(false);
+        //validUsernameImg.setVisible(false);
         invalidUsernameImg.setVisible(false);
 
 
@@ -104,11 +105,11 @@ public class CustomerController implements Initializable {
 
     private boolean isValidName(String name) {
         if (Pattern.matches("^[a-zA-Z\\s]{3,30}$", name)) {
-            validNameImg.setVisible(true);
+            //validNameImg.setVisible(true);
             invalidNameImg.setVisible(false);
             return true;
         } else {
-            validNameImg.setVisible(false);
+            //validNameImg.setVisible(false);
             invalidNameImg.setVisible(true);
             return false;
         }
@@ -116,11 +117,11 @@ public class CustomerController implements Initializable {
 
     private boolean isValidFamily(String family) {
         if (Pattern.matches("^[a-zA-Z\\s]{3,30}$", family)) {
-            validFamilyImg.setVisible(true);
+            //validFamilyImg.setVisible(true);
             invalidFamilyImg.setVisible(false);
             return true;
         } else {
-            validFamilyImg.setVisible(false);
+            //validFamilyImg.setVisible(false);
             invalidFamilyImg.setVisible(true);
             //throw new InvalidPersonDataException("Invalid family");
             return false;
@@ -129,11 +130,11 @@ public class CustomerController implements Initializable {
 
     private boolean isValidNationalId(String nationalId) {
         if (Pattern.matches("^\\d{10}$", nationalId)) {
-            validNationalidImg.setVisible(true);
+            //validNationalidImg.setVisible(true);
             invalidNationalidImg.setVisible(false);
             return true;
         } else {
-            validNationalidImg.setVisible(false);
+            //validNationalidImg.setVisible(false);
             invalidNationalidImg.setVisible(true);
             return false;
         }
@@ -141,11 +142,11 @@ public class CustomerController implements Initializable {
 
     private boolean isValidUsername(String username) {
         if (Pattern.matches("^[a-zA-Z][a-zA-Z0-9_.]{4,19}$", username)) {
-            validUsernameImg.setVisible(true);
+            //validUsernameImg.setVisible(true);
             invalidUsernameImg.setVisible(false);
             return true;
         } else {
-            validUsernameImg.setVisible(false);
+            //validUsernameImg.setVisible(false);
             invalidUsernameImg.setVisible(true);
             return false;
         }
@@ -153,11 +154,11 @@ public class CustomerController implements Initializable {
 
     private boolean isValidPassword(String password) {
         if (Pattern.matches("^(?=.*[a-zA-Z]{2})(?=.*[0-9]{2})(?=.*[@#$&]{1}).{6,20}$", password)) {
-            validPasswordImg.setVisible(true);
+            //validPasswordImg.setVisible(true);
             invalidPasswordImg.setVisible(false);
             return true;
         } else {
-            validPasswordImg.setVisible(false);
+            //validPasswordImg.setVisible(false);
             invalidPasswordImg.setVisible(true);
             return false;
         }
